@@ -1,12 +1,13 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     // 入口
     entry: './src/main.js',
     // 出口
     output: {
-        path: resolve(__dirname, 'dist'),
+        path: resolve(__dirname, '../dist'),
         filename: 'public/js/index.js',
         clean: true
     },
@@ -15,11 +16,11 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
             },
             {
                 test: /\.js$/,
@@ -46,15 +47,13 @@ module.exports = {
     // 插件
     plugins: [
         new HtmlWebpackPlugin({
-            template: resolve(__dirname,'public/index.html')
+            template: resolve(__dirname, '../public/index.html')
+        }),
+        // 提取css成单独文件
+        new MiniCssExtractPlugin({
+            filename: "public/css/index.css"
         })
     ],
     // 模式
-    mode: 'development',
-    // 开发服务器
-    devServer: {
-        host: '127.0.0.1',
-        port: '8008',
-        open: true
-    }
+    mode: 'production',
 }

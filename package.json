@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve"
+    "start": "npm run dev",
+    "dev": "webpack serve --config ./config/webpack.dev.js",
+    "build": "webpack --config ./config/webpack.prod.js"
   },
-  "keywords": [],
+  "keywords": ["webpack","typescript","vue3","demo"],
   "author": "liudewa",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
     "less-loader": "^11.1.0",
+    "mini-css-extract-plugin": "^2.7.2",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
     "webpack": "^5.75.0",

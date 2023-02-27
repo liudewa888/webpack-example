@@ -6,9 +6,9 @@ module.exports = {
     entry: './src/main.js',
     // 出口
     output: {
-        path: resolve(__dirname, 'dist'),
+        // path: resolve(__dirname, 'dist'),
         filename: 'public/js/index.js',
-        clean: true
+        // clean: true
     },
     // 模块
     module: {
@@ -46,7 +46,7 @@ module.exports = {
     // 插件
     plugins: [
         new HtmlWebpackPlugin({
-            template: resolve(__dirname,'public/index.html')
+            template: resolve(__dirname, '../public/index.html')
         })
     ],
     // 模式
